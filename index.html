@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index-photo</title>
+			<link rel="stylesheet" type="text/css" href="./CSS/header-footer.css">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.photo{
+			height: 800px;width: 1000px;
+			margin:0 auto;
+			background: pink;
+			position: relative;margin-top: 20px;
+		}
+		.photo ul{
+			list-style: none;text-align: center;
+		}
+		.photo li{
+			display: inline-block;height:200px;width: 300px;margin: 10px;position: relative;transition: all 1s;
+		}
+		.photo img{
+			width: 300px;position: absolute;top: 0; bottom: 0;right:0;left:0;margin: auto;
+
+
+		}
+		li:nth-child(2n){
+			transform: rotate(15deg);
+
+		}
+		
+		li:active{
+			transform:scale(1.5) rotate(360deg);
+			
+			z-index:20;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="header"></div>
+	<div class="photo">
+		<ul>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+			<li><img src="./images/timg.jpg"></li>
+		</ul>
+	</div>
+</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(".header").load("header.html");
+	</script>
+</html>
