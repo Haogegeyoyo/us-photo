@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 3Dchange-demo</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.main{
+			width:auto;height: 300px;
+			position:relative;
+			
+		}
+		.pic{
+			width: 900px;
+			height: 300px;
+			position: relative;
+				overflow: hidden;margin:50px auto;
+			/*overflow: hidden;*/
+		}
+		li{list-style: none;}
+		.pic ul{
+			/*width: 700%;*/
+			width: 900px;height: 300px;
+			overflow: hidden;
+			margin: 0 auto;
+			transition: all 0.8s;
+		}
+		.pic li{
+			position: absolute;top: 0;left:0; 
+			opacity: 0;
+			width: 500px;height: 300px;float: left;
+			transition: all 0.8s;
+		}
+		.pic img{
+			width:100%;height: 300px;
+		}
+		.pic .p1{
+			transform: translate3d(-200px,0,0) scale(0.8);
+		}
+		.pic .p2{
+			transform: translate3d(0,0,0) scale(0.8);
+			transform-origin:0 50%;
+			opacity: 0.8;
+			z-index: 1;
+
+		}
+		.pic .p3{
+			transform: translate3d(200px,0,0) scale(1);
+			transform-origin:0 50%;
+			opacity: 1;
+			z-index: 5;
+		}
+		.pic .p4{
+			transform: translate3d(400px,0,0) scale(0.8);
+			transform-origin:100% 50%;
+			opacity: 0.8;
+			/*添加透明度，原来的li的css为.pic li{}，所以在些要改成.pic .p4,不然优先级不够，会导致透明度使用li中的,即为0;*/
+			z-index: 1;
+		}
+		.p5{
+			transform: translate3d(600px,0,0) scale(0.8);
+		}
+		.p6{
+			transform: translate3d(800px,0,0) scale(0.8);
+		
+		}
+		.p7{
+			transform: translate3d(1000px,0,0) scale(0.8);
+		}
+		
+		.main .tab{
+			width:300px;height: 20px;position: absolute;left:50%;margin-left:-150px;bottom:20px;text-align: center;z-index: 20;
+		}
+		.main .tab li{
+			width:30px; height:2px; margin: 2.5px 0; background:red;display: inline-block;border-radius: 7.5px;cursor: pointer;
+		}
+		.main .tab li.on{/*//li.on 没有空格 */  
+			background: #fff;
+		}
+		
+		.btn a{
+			text-decoration: none;font-size: 40px;color: #fff;
+			font-weight:bold;position: absolute;background: rgba(0,255,0,0.3);
+			top:0;bottom:0;margin: auto 0;display: block;width:50px;height: 100px;line-height: 100px;text-align: center;
+		}
+		.btn .perv{
+			left: 10px;
+		}
+		.btn .next{
+			right: 10px;
+		}
+		.btn:hover{
+			background: rgba(0,0,0,0.6);
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="pic">
+			<ul>
+				<li class="p1"><img src="./images/banner/7.jpg"></li>
+				<li class="p2"><img src="./images/banner/1.jpg"></li>
+				<li class="p3"><img src="./images/banner/2.jpg"></li>
+				<li class="p4"><img src="./images/banner/3.jpg"></li>
+				<li class="p5"><img src="./images/banner/4.jpg"></li>
+				<li class="p6"><img src="./images/banner/5.jpg"></li>
+				<li class="p7"><img src="./images/banner/6.jpg"></li>
+			</ul>	
+		</div>
+			<ul class="tab">
+				<li class="on"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+				<!-- <p></p> -->
+					<div class="btn">
+				<a href="javascript:;"class="perv"><</a>
+				<a href="javascript:;" class="next">></a>
+			</div>
+	</div>
+
+</body>
+	<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $banner=$(".main");
+			var	$picUl=$(".pic ul");
+			var $picLi=$(".pic ul li");
+			var $tabLi=$(".tab li");
+			var $btnA=$(".main .btn a");
+			var $imgWidth=$(".pic ul li img").width();
+			var nowTime = new Date();
+			var index=0;
+
+			var $arr=new Array("p1","p2","p3","p4","p5","p6","p7");
+
+			var timer=setInterval(function(){
+				next();
+			},2000);
+			
+			$btnA.click(function(){
+				// alert(0);
+				i=$(this).index();
+				// i?alert(i):alert(i);判断i？判断是否成立，并弹出i值
+				i?next():prev();
+			})
+			
+			var $M=$(".main");
+			$M.hover(function(){
+					// alert("鼠标移入");
+				clearInterval(timer);
+			},function(){
+				// alert("鼠标移开");
+				timer=setInterval(function(){	
+				next();
+			},2000);
+			})
+
+			function prev(){
+				index--;
+				$arr.push($arr[0]);
+				$arr.shift();
+				$picLi.each(function(i,e){
+					$(e).removeClass().addClass($arr[i]);
+				})
+				show();
+			}
+			function next(){// 图片位置为向左移，即p2-p1,p3-p2，以此，
+				index++;
+				$arr.unshift($arr[6]);
+				$arr.pop();
+				$picLi.each(function(i,e){
+					$(e).removeClass().addClass($arr[i]);
+				})
+				show();
+			}
+			function show(){
+			if(index<0){
+				index=$tabLi.length-1;//下标要减1
+			}
+			else if(index>=$tabLi.length){
+				index=0;
+			}
+			$tabLi.eq(index).addClass('on').siblings().removeClass('on');
+
+			}
+		// 	var timer=setInterval(function(){
+		// 		index++;
+		// 		next();
+		// 	},2000);
+
+		// 	$banner.hover(function(){
+		// 		$(".main .btn").css('display','block');
+		// 		clearInterval(timer);	
+		// 	},function(){
+		// 		$(".main .btn").css('display','none');
+		// 		timer=setInterval(function(){
+		// 		index++;
+		// 		next();
+		// 	},2000);
+		// 	})
+		// 	$tabLi.click(function(){
+		// 		 // alert($(this).index());
+				
+		// 		   index=$(this).index();
+		// 			 $(this).addClass('on').siblings().removeClass('on');
+		// 			 $picUl.animate({//通过改变ul的margin来达到轮播图片的方法，所以这里$picUl.animate
+		// 				marginLeft:-$imgWidth*(index+1)+'px'//index++后，index=1，-$imgWidth*1没有意义，从2开始
+		// 			},300);
+
+		// 		})
+
+		// 	$btnA.click(function(){
+		// 		 if (new Date() - nowTime > 300) {//当前时间减去上一次时间大于300毫秒才执行
+		// 		 	//next()方法动画执行300毫秒，然后后回调函数，回调判断处理index的值，如果不限制时间，
+		// 		 	//那一直点击就会出现，index一直加却没有回调函数，所以处理不了Index,index就会脱离限制范围。
+		// 			nowTime = new Date();
+		// 			i=$(this).index();
+		// 			i?index++:index--;
+		// 			// alert(index);
+		// 			next();	//next方法不是为下一张的方法，当index--时也则为上一张	
+		// 			 // $(".main p").text(index);
+		// 		}	
+		// 	}).mousedown(function () {
+  //       	return false;
+  //   });
+		// 	// function show(){
+		// 	// 	$picUl.animate({
+		// 	// marginLeft:-$imgWidth*(index+1)+'px'
+		// 	// 		},300);
+		// 	// }
+		// 	function next(){
+
+		// 		var indexLi=index;
+		// 		//判断下标，最后一张时按钮也要回到第一个
+		// 		if(indexLi>=$tabLi.length){
+		// 			indexLi=0;
+		// 		}
+		// 		else if(indexLi<0){
+		// 			indexLi=$tabLi.length - 1;
+		// 		}
+
+		// 		$tabLi.eq(indexLi).addClass('on').siblings().removeClass("on");
+
+		// 		$picUl.animate({//通过改变ul的margin来达到轮播图片的方法，所以这里$picUl.animate
+		// 			marginLeft:-$imgWidth*(index+1)+'px'//index++后，index=1，-$imgWidth*1没有意义，从2开始
+		// 		},300,function(){
+		// 		//回调函数，动画函数执行完执行，当第七张图时，让图片立即复位
+		// 			if(index==$tabLi.length){//tabLi是圆点的数，有七个，通过判断这个li的长度
+		// 			//这个方法是上面执行完才会执行，所以会有动画，如果.pic不加头尾的话，就
+		// 			//会有图七到空白的动画，然后再在.pic的li里图七后面加个图一,就会有图七轮播到图七的画面,然后再立即复位到-800px,原始图一处;
+		// 				$picUl.css('marginLeft',-$imgWidth+'px');
+		// 				index=0;
+		// 				// alert($tabLi.length);
+		// 			}else if(index<0){
+		// 				$picUl.css('marginLeft',-$imgWidth*($tabLi.length)+'px');
+		// 				index = $tabLi.length - 1;
+		// 			}
+		// 		});
+		// 	}
+		})
+	</script>
+</html>
