@@ -1,10 +1,15 @@
 *{
 	padding: 0px;
 	margin: 0px;
-	font-size: 16px;
-	color: #FFBBFF;
-	font-family: "Microsoft YaHei";
+	font-size: 20px;
+	color: #64b4dc;
+	font-family: "一纸情书";
 }
+@font-face {
+  font-family: "一纸情书";
+  src: url("../font/一纸情书.ttf") format("truetype");
+}
+
 a,a:link,a:visited,a:hover,a:active{
 	text-decoration: none;
 }
@@ -79,10 +84,10 @@ body{
 	-ms-transform-style: preserve-3d;			
 	-o-transform-style: preserve-3d;			
 	transform-style: preserve-3d;			
-	/*-webkit-transition: all linear 2s;
-	-moz-transition: all linear 2s;
-	-ms-transition: all linear 2s;
-	-o-transition: all linear 2s;*/
+	-webkit-transition: transform linear 2s;
+	-moz-transition: transform linear 2s;
+	-ms-transition: transform linear 2s;
+	-o-transition: transform linear 2s;
 	transition: transform linear 2s;
 	background: url(../images/book/bookLeft.png) no-repeat;
 	background-size: 479.26px 780px;
@@ -100,6 +105,7 @@ body{
 	top: 50px;
 	left: 50px;
 	display: inline-block;
+	height: 360px;/*padding=20px*/
 	width: 360px;
 	padding: 20px;
 	font-size: 20px;
@@ -114,6 +120,9 @@ body{
 	-ms-column-gap: 40px;
 	column-count: 2; 
 	column-gap: 40px;
+}
+.font-blue{
+	color: #64b4dc;
 }
 .bookWord span{
 	font-size: 30px;

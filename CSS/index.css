@@ -1,5 +1,9 @@
 *{margin: 0;padding: 0;}
 		
+@font-face {
+  font-family: "一纸情书";
+  src: url("../font/一纸情书.ttf") format("truetype");
+}
 		.header{
 			width: auto;height: 150px;background:#FF9999;margin: auto;overflow: hidden;
 		}
@@ -9,14 +13,16 @@
 		.top-left img{
 			height: 150px;width: 150px;border-radius:50%;
 		}
-		.top-right{width: 400px;height: 140px;
+		.top-right{width: 450px;height: 140px;
 					float:left;
 					margin-left:150px;
 					 text-align: center;
 					 line-height: 150px;
 				}
-		.top-right a{ text-decoration: none;color:#333333; font-size: 20px;margin:14px;padding-bottom:5px;}
-
+		.top-right a{ text-decoration: none;color:#333333; font-size: 25px;margin:14px;padding-bottom:5px;font-family:"一纸情书";}
+		.top-right .checked,.top-right a:hover{
+				border-bottom:3px solid #CCCCFF;color: 	#FFFF99;
+		}
 		.photo{
 			height: 800px;width:800px;overflow: hidden;
 			margin:0 auto;
