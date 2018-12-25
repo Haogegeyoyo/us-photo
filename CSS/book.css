@@ -98,16 +98,16 @@ body{
 	top: 50px;
 	left: 50px;	
 	display: inline-block;
-	width: 400px;			
+	width: 400px;	height: 440px;		
 }
 .bookWord{
-	position: absolute;
+	position: absolute;text-align:left;
 	top: 50px;
 	left: 50px;
 	display: inline-block;
-	height: 360px;/*padding=20px*/
+	height: 300px;/*padding-top=150px padding=20,440-140;*/
 	width: 360px;
-	padding: 20px;
+	padding: 120px 20px 20px 20px;
 	font-size: 20px;
 	line-height: 27px;
 	backface-visibility: visible;
@@ -121,6 +121,7 @@ body{
 	column-count: 2; 
 	column-gap: 40px;
 }
+
 .font-blue{
 	color: #64b4dc;
 }
@@ -166,6 +167,14 @@ body{
 	-ms-transform: rotateY(-180deg);
 	-o-transform: rotateY(-180deg);
 	transform: rotateY(-180deg);
+}
+.imgRunClass{
+	/*img经过div动画翻转后会方向相反，在此再翻转一下，无需动画，所以正负皆可*/
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 .lastBtn,
 .nextBtn
