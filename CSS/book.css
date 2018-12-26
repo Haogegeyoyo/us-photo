@@ -56,7 +56,8 @@ body{
 	padding: 40px 0;
 }
 .bookBox{
-	width: 1000px;
+	width: auto;
+	max-width: 1000px;
 	height: 600px;
 	position: relative;			
 	margin: 30px auto;
