@@ -42,9 +42,9 @@ a,a:link,a:visited,a:hover,a:active{
 	text-overflow: ellipsis;
 }
 body{
-	width: 100%;
+	width: auto;
 	max-width: 1920px;
-	min-width: 1200px;
+	/*min-width: 1200px;*/
 	/*background-color: #FFCC99;*/
 	background: url("../images/header/bgimg.jpg") 0px 150px;
 	background-size: 200px;
