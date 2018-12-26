@@ -68,12 +68,12 @@ body{
 	background: url(../images/book/bookBg.png) no-repeat 0 0 ;
 	background-size: 100% 100%;
 }
-.bookBox:hover .lastBtn{
+/*.bookBox:hover .lastBtn{
 	display: block;
 }
 .bookBox:hover .nextBtn{
 	display: block;
-}
+}*/
 /*书的高度*/
 .bookPage{
 	position: absolute;
@@ -180,22 +180,25 @@ body{
 .lastBtn,
 .nextBtn
 {
-	display: none;
+	display: block;
+	width:200px;
+	height: 80px;
 	position: absolute;
-	top: 300px;
+	bottom:-100px;
+	text-align: center;
 	cursor: pointer;
 	z-index: 999;
 	font-size: 50px;
-	line-height: 100px;
+	line-height: 80px;
 	color: #fff;
 	text-decoration: none;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(250,102,102,.6);
 }
 .lastBtn{
-	left: 0;
+	left: 25%;
 }
 .nextBtn{
-	right: 0;
+	right: 25%;
 }
 .canvasBox{
 	display: block;
