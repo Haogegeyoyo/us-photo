@@ -2,10 +2,12 @@
   margin: 0;
   padding: 0;
 }
-
+@font-face {
+  font-family: "一纸情书";
+  src: url("../fonts/一纸情书.ttf") format("truetype");
+}
 body {
-  font-family: sans-serif;
-  margin: 24px;
+  font-family: "一纸情书";
   background: #FFCCCC;
   color: #505050;
 }
@@ -17,9 +19,9 @@ a {
 
 .article {
   display: block;
-  margin: 0 0 30px 0;
+  margin: 30px 0 30px 0;
   padding: 12px;
-  background: white;
+  background: #CCCCFF;
   border-radius: 3px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   transition: all 220ms;
@@ -37,7 +39,7 @@ a {
 .article h2 {
   text-align: center;
   font-size: 14px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;字大写*/
   margin: 0 0 12px 0;
 }
 
@@ -54,14 +56,15 @@ a {
   padding: 0 12px;
   box-sizing: border-box;
 }
-@media (max-width: 640px) {
+@media (max-width: 640px) {/*当窗口宽度等于小于640时*/
   .wall-column {
     width: 50%;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 480px) {/*当窗口宽度等于小于480时,宽度自适应，取消浮动*/
   .wall-column {
-    width: auto;
-    float: none;
+    width: 50%;
+    width:50%;
+    /*float: none;*/
   }
 }
