@@ -2,7 +2,7 @@
 		
 @font-face {
   font-family: "一纸情书";
-  src: url("../font/一纸情书.ttf") format("truetype");
+  src: url("../fonts/一纸情书.ttf") format("truetype");
 }
 		.header{
 			width: auto;height: 150px;background:#FF9999;margin: auto;overflow: hidden;
@@ -67,7 +67,7 @@
 		}
 		.pic{
 			width: 900px;
-			height: 300px;
+			height: 320px;
 			position: relative;
 				overflow: hidden;margin:50px auto;
 			/*overflow: hidden;*/
@@ -75,7 +75,7 @@
 		li{list-style: none;}
 		.pic ul{
 			/*width: 700%;*/
-			width: 900px;height: 300px;
+			width: 900px;height: 320px;
 			overflow: hidden;
 			margin: 0 auto;
 			transition: all 0.8s;
@@ -83,11 +83,11 @@
 		.pic li{
 			position: absolute;top: 0;left:0; 
 			opacity: 0;
-			width: 500px;height: 300px;float: left;
+			width: 500px;height: 320px;float: left;
 			transition: all 0.8s;
 		}
 		.pic img{
-			width:100%;height: 300px;
+			width:100%;height: 320px;
 		}
 		.pic .p1{
 			transform: translate3d(-200px,0,0) scale(0.8);
@@ -127,7 +127,7 @@
 			width:300px;height: 20px;position: absolute;left:50%;margin-left:-150px;bottom:-50px;text-align: center;z-index: 20;
 		}
 		.main .tab li{
-			width:30px; height:2px; margin: 2.5px 0; background:red;display: inline-block;border-radius: 7.5px;cursor: pointer;
+			width:30px; height:2px; margin: 20px 0; background:red;display: inline-block;border-radius: 7.5px;cursor: pointer;
 		}
 		.main .tab li.on{/*//li.on 没有空格 */  
 			background: #99CC66;

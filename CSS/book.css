@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "一纸情书";
-  src: url("../font/一纸情书.ttf") format("truetype");
+  src: url("../fonts/一纸情书.ttf") format("truetype");
 }
 
 a,a:link,a:visited,a:hover,a:active{
