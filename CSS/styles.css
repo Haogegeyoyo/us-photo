@@ -56,15 +56,35 @@ a {
   padding: 0 12px;
   box-sizing: border-box;
 }
-@media (max-width: 640px) {/*当窗口宽度等于小于640时*/
+@media  (max-width: 640px) {/*当窗口宽度小于640时*/
   .wall-column {
     width: 50%;
   }
 }
-@media (max-width: 480px) {/*当窗口宽度等于小于480时,宽度自适应，取消浮动*/
+@media screen and (max-width: 480px) {/*当窗口宽度小于480时,宽度自适应，取消浮动*/
+
   .wall-column {
     width: 50%;
-    width:50%;
+    /*width:auto;*/
     /*float: none;*/
   }
+  .header{
+      width: auto;height:68px;background:#FF9999;margin: auto;overflow: hidden;
+    }
+    .top-left{
+      width: 68px;height: 68px;float:left;margin-left: 15%;
+    }
+    .top-left img{
+      height: 68px;width: 68px;border-radius:50%;
+    }
+    .top-right{width: 220px;height: 68px;
+          float:left;
+          margin-left:40px;
+           text-align: center;
+           line-height: 68px;
+        }
+    .top-right a{  font-size: 10px;margin:6.3px;padding-bottom:2.5px;font-family:"一纸情书";}
+    .top-right .checked,.top-right a:hover{
+        border-bottom:3px solid #CCCCFF;color:  #FFFF99;
+    }
 }

@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>time</title>
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="js/times.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>相册</title>
+	<link rel="stylesheet" type="text/css" href="CSS/index.css">
+	<link rel="stylesheet" type="text/css" href="CSS/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="CSS/default.css">
+	<link rel="stylesheet" type="text/css" href="CSS/styles.css">
 </head>
 <body>
 
-	
+	<div class="header">
+		<div class="top-left">	
+			<img src="./images/header/head.jpg">
+		</div>
+		<div class="top-right">
+			<a href="./index.html">首页</a>
+			<a href="./us_book.html">我们</a>
+			<a href="./us.html" class="checked">相册</a>
+			<a href="./product.html">生活</a>
+			<a href="./contact-us.html">待续</a>	
+		</div>
+	</div>
+	<article id="us">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="js/jaliswall.js"></script>
 	<script type="text/javascript">
 	$(function(){
-		var myDate = new Date();
-		run(myDate);
-		alert(dateDif(myDate ));
-		})
-	
+		$('#us').load("us.html");
+		$('.wall').jaliswall({ item: '.article' });
+	});
 	</script>
 </body>
 </html>
